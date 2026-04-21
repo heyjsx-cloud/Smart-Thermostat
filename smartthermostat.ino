@@ -1,6 +1,23 @@
-#define BLYNK_TEMPLATE_ID "TMPL3rUfZQ5VP"
-#define BLYNK_TEMPLATE_NAME "Smart ThermoStat"
-#define BLYNK_AUTH_TOKEN    "7XqDIuBdnR8Iqo0TCbNDtFsVlOiaNu6w"
+// Hardware GPIO pins — ESP8266 NodeMCU
+// MCU Pin	Connected to	Wire / Signal	Type	Notes
+// D1	LCD I2C	SCL	Signal	// Wire.begin(D2, D1) → SCL
+// D2	LCD I2C	SDA	Signal	// Wire.begin(D2, D1) → SDA
+// D3	DHT11	DATA	Signal	// DHT dht(D3, DHT11)
+// D5	LED (+220Ω)	Anode	Signal	// #define LED_PIN D5
+// 3V3	DHT11	VCC	Power	// 3.3V regulated output pin
+// 5V / VIN	LCD I2C	VCC	Power	// LCD needs 5V for backlight
+// GND	DHT11, LCD, LED	GND	Ground	// Common ground for all components
+// Blynk virtual pins — App widgets
+// Virtual Pin	Widget	Direction	Data	Notes
+// V0	Gauge / Display	Write →	Temperature (°C)	// Blynk.virtualWrite(V0, t)
+// V1	Gauge / Display	Write →	Humidity (%)	// Blynk.virtualWrite(V1, h)
+// V2	Button	Read / Write	LED state (0 / 1)	// BLYNK_WRITE(V2) — manual LED toggle
+// V3	Switch	Read / Write	Auto mode (0 / 1)	// BLYNK_WRITE(V3) — auto/manual mode
+
+
+#define BLYNK_TEMPLATE_ID ""
+#define BLYNK_TEMPLATE_NAME ""
+#define BLYNK_AUTH_TOKEN    ""
 
 /* Temperature & Humidity Monitoring + LED Control (Blynk) */
 
@@ -14,9 +31,9 @@
 LiquidCrystal_I2C lcd(0x27, 16, 2);
 
 // ----- BLYNK AUTH -----
-char auth[] = "7XqDIuBdnR8Iqo0TCbNDtFsVlOiaNu6w";
-char ssid[] = "iot";
-char pass[] = "12345678";
+char auth[] = "";
+char ssid[] = "";
+char pass[] = "";
 
 // ----- DHT SETTINGS -----
 DHT dht(D3, DHT11);
